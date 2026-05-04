@@ -5,22 +5,12 @@ import ThemeProvider from 'theme/ThemeProvider';
 import Layout from 'components/Layout';
 
 // Global CSS Imports
-// import 'animate.css';
-import 'styles/style.css';
-import 'styles/responsive.css';
 import 'plugins/scrollcue/scrollCue.css';
-import 'assets/scss/style.scss';
+import 'styles/tailwind.css';
 
 function MyApp({ Component, pageProps }) {
   const { pathname } = useRouter();
   const [loading, setLoading] = useState(true);
-
-  // Dynamically import Bootstrap JS (avoids server-side issues)
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      import('bootstrap');
-    }
-  }, []);
 
   // Initialize scrollCue on route change
   useEffect(() => {

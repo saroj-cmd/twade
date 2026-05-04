@@ -11,6 +11,7 @@ import { heroContent } from "../data";
  */
 const Hero = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleRegisterSubmit = async (event) => {
     event.preventDefault();
@@ -86,8 +87,7 @@ const Hero = () => {
             alert("Registered successfully");
           }
           formElement.reset();
-          const closeButton = document.querySelector("#registerModal .btn-close");
-          if (closeButton) closeButton.click();
+          setIsModalOpen(false);
           setIsSubmitting(false);
         },
       };
@@ -105,78 +105,80 @@ const Hero = () => {
   };
 
   return (
-    <section className="wrapper secondary-bg bg-lines">
+    <section className="bg-[#0b1f3a] bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.12),_transparent_58%)]">
       <Script src="https://checkout.razorpay.com/v1/checkout.js" strategy="afterInteractive" />
-      {/* Main container with responsive padding and centered text */}
-      <div className="container pt-16 pt-md-18 pb-16 pb-lg-20 text-center">
-        <div className="row">
-          {/* Centered column with animation cues for the hero heading */}
+      <div className="mx-auto max-w-6xl px-4 pb-16 pt-28 text-center md:px-6 md:pb-20 md:pt-36">
+        <div className="flex justify-center">
           <div
-            className="col-lg-10 col-xl-9 col-xxl-8 mx-auto"
+            className="mx-auto max-w-4xl"
             data-cues="zoomIn"
             data-delay="500"
             data-interval="-200"
             data-group="page-title"
           >
-            {/* Main headline */}
-            <h2 className="display-1 fs-38 lh-sm mb-4 text-white">{heroContent.title}</h2>
-            <p className="lead text-white hero-subtitle mx-auto mb-6">{heroContent.subtitle}</p>
-            <div className="d-flex flex-wrap justify-content-center hero-cta-row">
+            <h2 className="mb-4 text-4xl font-bold leading-tight text-white md:text-5xl">{heroContent.title}</h2>
+            <p className="mx-auto mb-8 max-w-3xl text-base text-slate-100 md:text-lg">{heroContent.subtitle}</p>
+            <div className="flex flex-wrap justify-center gap-3">
               <button
                 type="button"
-                className="btn btn-md btn-primary rounded-pill"
-                data-bs-toggle="modal"
-                data-bs-target="#registerModal"
+                className="rounded-full bg-amber-500 px-6 py-3 text-sm font-semibold text-slate-900 transition hover:bg-amber-400"
+                onClick={() => setIsModalOpen(true)}
               >
                 Register
               </button>
-              <NextLink href="#contact" title={heroContent.secondaryCta} className="btn btn-md btn-outline-primary rounded-pill" />
+              <NextLink
+                href="#contact"
+                title={heroContent.secondaryCta}
+                className="rounded-full border border-white px-6 py-3 text-sm font-semibold text-white transition hover:bg-white hover:text-[#0b1f3a]"
+              />
             </div>
           </div>
         </div>
       </div>
 
-      <div
-        className="modal fade"
-        id="registerModal"
-        tabIndex="-1"
-        aria-labelledby="registerModalLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog modal-dialog-centered">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="registerModalLabel">
-                Register
-              </h5>
-              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" />
+      {isModalOpen && (
+        <div className="fixed inset-0 z-[70] bg-black/55 p-4" onClick={() => setIsModalOpen(false)}>
+          <div
+            className="mx-auto mt-10 w-full max-w-2xl rounded-2xl bg-white shadow-2xl md:mt-16"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+              <h5 className="text-lg font-semibold text-slate-900">Register</h5>
+              <button
+                type="button"
+                className="rounded-md p-2 text-slate-500 hover:bg-slate-100 hover:text-slate-700"
+                aria-label="Close"
+                onClick={() => setIsModalOpen(false)}
+              >
+                ✕
+              </button>
             </div>
-            <div className="modal-body">
+            <div className="px-5 py-5">
               <form onSubmit={handleRegisterSubmit}>
-                <div className="row g-3">
-                  <div className="col-md-6">
-                    <label htmlFor="firstName" className="form-label">First name</label>
-                    <input type="text" className="form-control" id="firstName" name="firstName" required />
+                <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                  <div>
+                    <label htmlFor="firstName" className="mb-1 block text-sm font-medium text-slate-700">First name</label>
+                    <input type="text" className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm outline-none ring-[#0b1f3a] focus:ring" id="firstName" name="firstName" required />
                   </div>
-                  <div className="col-md-6">
-                    <label htmlFor="lastName" className="form-label">Last name</label>
-                    <input type="text" className="form-control" id="lastName" name="lastName" required />
+                  <div>
+                    <label htmlFor="lastName" className="mb-1 block text-sm font-medium text-slate-700">Last name</label>
+                    <input type="text" className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm outline-none ring-[#0b1f3a] focus:ring" id="lastName" name="lastName" required />
                   </div>
-                  <div className="col-12">
-                    <label htmlFor="collegeInstitute" className="form-label">College / Institute</label>
-                    <input type="text" className="form-control" id="collegeInstitute" name="collegeInstitute" required />
+                  <div className="md:col-span-2">
+                    <label htmlFor="collegeInstitute" className="mb-1 block text-sm font-medium text-slate-700">College / Institute</label>
+                    <input type="text" className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm outline-none ring-[#0b1f3a] focus:ring" id="collegeInstitute" name="collegeInstitute" required />
                   </div>
-                  <div className="col-md-6">
-                    <label htmlFor="email" className="form-label">Your email</label>
-                    <input type="email" className="form-control" id="email" name="email" required />
+                  <div>
+                    <label htmlFor="email" className="mb-1 block text-sm font-medium text-slate-700">Your email</label>
+                    <input type="email" className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm outline-none ring-[#0b1f3a] focus:ring" id="email" name="email" required />
                   </div>
-                  <div className="col-md-6">
-                    <label htmlFor="phone" className="form-label">Phone</label>
-                    <input type="tel" className="form-control" id="phone" name="phone" required />
+                  <div>
+                    <label htmlFor="phone" className="mb-1 block text-sm font-medium text-slate-700">Phone</label>
+                    <input type="tel" className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm outline-none ring-[#0b1f3a] focus:ring" id="phone" name="phone" required />
                   </div>
-                  <div className="col-12">
-                    <label htmlFor="helpOption" className="form-label">How Can We Help You?</label>
-                    <select id="helpOption" name="helpOption" className="form-select" defaultValue="" required>
+                  <div className="md:col-span-2">
+                    <label htmlFor="helpOption" className="mb-1 block text-sm font-medium text-slate-700">How Can We Help You?</label>
+                    <select id="helpOption" name="helpOption" className="w-full rounded-md border border-slate-300 bg-white px-3 py-2 text-sm outline-none ring-[#0b1f3a] focus:ring" defaultValue="" required>
                       <option value="" disabled>Select Option</option>
                       <option value="it-consulting-advisory">IT consulting & Advisory</option>
                       <option value="cyber-security">Cyber Security</option>
@@ -186,25 +188,29 @@ const Hero = () => {
                       <option value="other">Other</option>
                     </select>
                   </div>
-                  <div className="col-12">
-                    <label htmlFor="message" className="form-label">Message</label>
+                  <div className="md:col-span-2">
+                    <label htmlFor="message" className="mb-1 block text-sm font-medium text-slate-700">Message</label>
                     <textarea
                       id="message"
                       name="message"
-                      className="form-control"
+                      className="w-full rounded-md border border-slate-300 px-3 py-2 text-sm outline-none ring-[#0b1f3a] focus:ring"
                       rows="4"
                       placeholder="To better assist you, please describe how we can help..."
                     />
                   </div>
                 </div>
-                <button type="submit" className="btn btn-primary mt-4 w-100" disabled={isSubmitting}>
+                <button
+                  type="submit"
+                  className="mt-4 w-full rounded-md bg-[#0b1f3a] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#071425] disabled:cursor-not-allowed disabled:opacity-70"
+                  disabled={isSubmitting}
+                >
                   {isSubmitting ? "Processing..." : "Submit"}
                 </button>
               </form>
             </div>
           </div>
         </div>
-      </div>
+      )}
     </section>
   );
 };

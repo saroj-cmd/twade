@@ -1,6 +1,6 @@
-// Navbar.jsx
 import { Fragment, useRef, useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import { Menu, X } from 'lucide-react';
 import useSticky from 'hooks/useSticky';
 import Image from 'next/image';
 import NextLink from 'components/NextLink';
@@ -13,6 +13,7 @@ const Navbar = (props) => {
   const sticky = useSticky(350);
 
   const [isNarrowViewport, setIsNarrowViewport] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   useEffect(() => {
     if (typeof window === 'undefined') return undefined;
     const mq = window.matchMedia('(max-width: 991.98px)');
@@ -22,169 +23,123 @@ const Navbar = (props) => {
     return () => mq.removeEventListener('change', sync);
   }, []);
 
-  // Narrow viewports: keep bar fixed so page scroll does not slide it away with body content
   const pinnedToTop = sticky || isNarrowViewport;
 
   const { pathname } = useRouter();
   const isHomePage = pathname === '/';
   const sectionLink = (id) => (isHomePage ? `#${id}` : `/#${id}`);
 
-  // Ref for the main navbar element (used for measuring height, etc.)
   const navbarRef = useRef(null);
 
-  // Determine which logo to display based on sticky state; fallback to provided logoAlt or default 'logo-light'
   const logo = sticky ? 'logo' : logoAlt ?? 'logo-light';
+  const navLinks = [
+    { label: 'Home', href: sectionLink('home') },
+    { label: 'Training', href: '/training' },
+    { label: 'About Us', href: sectionLink('about') },
+    { label: 'Services', href: sectionLink('services') }
+  ];
 
-  // Predefined class applied when navbar is sticky/fixed
-  const fixedClassName = 'navbar navbar-expand-lg center-nav transparent navbar-light navbar-clone fixed';
-  const headerStyle = {
-    background: pinnedToTop ? 'rgba(255, 255, 255, 0.98)' : 'rgba(248, 249, 250, 0.96)',
-    backdropFilter: 'blur(10px)',
-    WebkitBackdropFilter: 'blur(10px)',
-    borderBottom: '1px solid #e0e0e0',
-    boxShadow: pinnedToTop ? '0 8px 24px rgba(11, 31, 58, 0.06)' : '0 4px 16px rgba(11, 31, 58, 0.04)'
-  };
-
-  // Header content markup for both fancy and standard layouts
-  const headerContent = (
-    <Fragment>
-      {/* Navbar Brand / Logo */}
-      <div className="navbar-brand">
-        <NextLink
-          href="/"
-          title={
-            <span className="d-inline-flex align-items-center brand-lockup">
-              <Image
-                alt="Tawade Consultancy logo"
-                src={`/img/${logo}.png`}
-                width={384}
-                height={384}
-                sizes="(max-width: 992px) 82px, 110px"
-                className="my-2 rounded-circle border border-2 p-1 site-navbar-logo-medallion"
-                style={{ borderColor: 'var(--brand-navy, #0b1f3a)' }}
-                priority
-              />
-              <span className="brand-text-block ms-2">
-                <span className="brand-title-line">
-                  Tawade <span className="brand-divider">|</span>
-                </span>
-                <span className="brand-subtitle-line">Consultancy Services</span>
-                <span className="brand-tagline-line">Your Trust Is Our Breath</span>
-              </span>
-            </span>
-          }
-        />
-      </div>
-
-      {/* Drawer: Bootstrap 5 navbar+offcanvas uses .offcanvas only — do NOT combine .navbar-collapse here
-          (collapse flex rules break the drawer / hid link text vs white panel). */}
-      <div
-        id="offcanvas-nav"
-        tabIndex={-1}
-        aria-labelledby="offcanvasNavLabel"
-        className="offcanvas offcanvas-nav offcanvas-start bg-white text-dark"
-      >
-        <span id="offcanvasNavLabel" className="visually-hidden">
-          Main navigation menu
-        </span>
-        {/* Offcanvas Header visible on small screens */}
-        <div className="offcanvas-header d-lg-none offcavas-bg">
-          <NextLink
-            href="/"
-            title={
-              <Image
-                alt="Tawade Consultancy logo"
-                src="/img/logo-light.png"
-                width={384}
-                height={384}
-                sizes="90px"
-                className="rounded-circle border border-2 p-1 site-navbar-logo-medallion site-navbar-logo-offcanvas"
-                style={{ borderColor: 'var(--brand-navy, #0b1f3a)' }}
-                data-bs-dismiss="offcanvas"
-              />
-            }
-          />
-        </div>
-
-        {/* Offcanvas Body with navigation links */}
-        <div className="offcanvas-body ms-lg-auto d-flex flex-column offcavas-bg">
-          <ul className="navbar-nav">
-            <li className="nav-item" data-bs-dismiss="offcanvas">
-              <NextLink href={sectionLink('home')} title="Home" className="nav-link rounded" />
-            </li>
-            <li className="nav-item" data-bs-dismiss="offcanvas">
-              <NextLink href="/training" title="Training" className="nav-link rounded" />
-            </li>
-            <li className="nav-item" data-bs-dismiss="offcanvas">
-              <NextLink href={sectionLink('about')} title="About Us" className="nav-link rounded" />
-            </li>
-            <li className="nav-item" data-bs-dismiss="offcanvas">
-              <NextLink href={sectionLink('services')} title="Services" className="nav-link rounded" />
-            </li>
-            <li className="nav-item align-items-center d-flex" data-bs-dismiss="offcanvas">
-              <NextLink
-                title="Contact Us"
-                href={sectionLink('contact')}
-                className="btn btn-sm btn-primary text-white mt-2 mt-lg-0 rounded"
-              />
-            </li>
-          </ul>
-
-          {/* Offcanvas Footer with contact info & social links (visible on small screens) */}
-          <div className="offcanvas-footer d-lg-none">
-            <div>
-              <NextLink
-                title="info@tawadeconsultancy.com"
-                className="link-body"
-                href="mailto:info@tawadeconsultancy.com"
-              />
-              <br />
-              <SocialLinks />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Navbar toggler for mobile (hamburger icon) */}
-      <div className={navOtherClass}>
-        <ul className="navbar-nav flex-row align-items-center ms-auto">
-          <li className="nav-item d-lg-none">
-            <button
-              type="button"
-              data-bs-toggle="offcanvas"
-              data-bs-target="#offcanvas-nav"
-              aria-controls="offcanvas-nav"
-              aria-label="Open navigation menu"
-              className="hamburger offcanvas-nav-btn text-dark"
-            >
-              <span />
-            </button>
-          </li>
-        </ul>
-      </div>
-    </Fragment>
-  );
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
 
   return (
     <Fragment>
-      {/* Optionally add a spacer element equal to the navbar height when sticky */}
       {stickyBox && (
         <div style={{ paddingTop: pinnedToTop ? navbarRef.current?.clientHeight : 0 }} />
       )}
 
-      <nav ref={navbarRef} className={`${pinnedToTop ? fixedClassName : navClassName} site-navbar`} style={headerStyle}>
-        {fancy ? (
-          <div className="container">
-            <div className="navbar-collapse-wrapper bg-white d-flex flex-row flex-nowrap w-100 justify-content-between align-items-end">
-              {headerContent}
-            </div>
+      <nav
+        ref={navbarRef}
+        className={`site-navbar ${pinnedToTop ? 'fixed inset-x-0 top-0 z-50' : 'absolute inset-x-0 top-0 z-40'} border-b border-slate-200 bg-white/95 backdrop-blur`}
+      >
+        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-4 py-3 md:px-6">
+          <NextLink
+            href="/"
+            title={
+              <span className="inline-flex items-center">
+                <Image
+                  alt="Tawade Consultancy logo"
+                  src={`/img/${logo}.png`}
+                  width={384}
+                  height={384}
+                  sizes="(max-width: 992px) 82px, 110px"
+                  className="h-[72px] w-[72px] rounded-full border-2 border-[#0b1f3a] p-1 md:h-[90px] md:w-[90px]"
+                  priority
+                />
+                <span className="ml-2 hidden leading-tight sm:inline">
+                  <span className="block text-lg font-semibold text-[#0b1f3a]">Tawade |</span>
+                  <span className="block text-xs font-medium tracking-wide text-slate-700">Consultancy Services</span>
+                  <span className="block text-[11px] italic text-slate-500">Your Trust Is Our Breath</span>
+                </span>
+              </span>
+            }
+          />
+
+          <div className="hidden items-center gap-6 lg:flex">
+            {navLinks.map((item) => (
+              <NextLink key={item.label} href={item.href} title={item.label} className="text-sm font-medium text-slate-700 hover:text-[#0b1f3a]" />
+            ))}
+            <NextLink
+              title="Contact Us"
+              href={sectionLink('contact')}
+              className="rounded-full bg-[#0b1f3a] px-4 py-2 text-sm font-medium text-white transition hover:bg-[#071425]"
+            />
           </div>
-        ) : (
-          <div className="container flex-lg-row flex-nowrap align-items-center">
-            {headerContent}
-          </div>
-        )}
+
+          <button
+            type="button"
+            aria-label="Open navigation menu"
+            className="inline-flex items-center rounded-md p-2 text-slate-700 hover:bg-slate-100 lg:hidden"
+            onClick={() => setIsMobileMenuOpen(true)}
+          >
+            <Menu size={22} />
+          </button>
+        </div>
       </nav>
+
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 z-[60] bg-black/40 lg:hidden" onClick={() => setIsMobileMenuOpen(false)}>
+          <aside
+            className="absolute right-0 top-0 h-full w-80 max-w-[85vw] bg-white p-5 shadow-xl"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="mb-6 flex items-center justify-between">
+              <Image
+                alt="Tawade Consultancy logo"
+                src="/img/logo-light.png"
+                width={80}
+                height={80}
+                className="rounded-full border-2 border-[#0b1f3a] p-1"
+              />
+              <button type="button" className="rounded-md p-2 text-slate-700 hover:bg-slate-100" onClick={() => setIsMobileMenuOpen(false)}>
+                <X size={22} />
+              </button>
+            </div>
+
+            <div className="space-y-2">
+              {navLinks.map((item) => (
+                <NextLink
+                  key={item.label}
+                  href={item.href}
+                  title={item.label}
+                  className="block rounded-md px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-100"
+                />
+              ))}
+              <NextLink
+                title="Contact Us"
+                href={sectionLink('contact')}
+                className="mt-2 inline-block rounded-full bg-[#0b1f3a] px-4 py-2 text-sm font-medium text-white"
+              />
+            </div>
+
+            <div className="mt-8 border-t border-slate-200 pt-5">
+              <NextLink title="info@tawadeconsultancy.com" className="text-sm text-slate-600" href="mailto:info@tawadeconsultancy.com" />
+              <SocialLinks className="mt-4 flex items-center gap-3" />
+            </div>
+          </aside>
+        </div>
+      )}
     </Fragment>
   );
 };
@@ -192,9 +147,8 @@ const Navbar = (props) => {
 // Default props for the Navbar component
 Navbar.defaultProps = {
   stickyBox: true,
-  navOtherClass: 'navbar-other d-flex d-lg-none',
-  navClassName: 'navbar navbar-expand-lg classic transparent position-absolute navbar-light'
-  // Alternative class option: 'navbar navbar-expand-lg bg-image'
+  navOtherClass: '',
+  navClassName: ''
 };
 
 export default Navbar;

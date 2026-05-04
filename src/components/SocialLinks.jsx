@@ -1,43 +1,26 @@
-// SocialLinks.jsx
 import React from 'react';
+import { Facebook, Instagram, Linkedin, Youtube } from 'lucide-react';
 
-// Social media links configuration
 const links = [
-  {
-    id: 1,
-    icon: 'uil uil-facebook',
-    url: 'https://www.facebook.com/tawadeconsultancyservices/'
-  },
-  {
-    id: 2,
-    icon: 'uil uil-instagram',
-    url: 'https://www.instagram.com/tawadeconsultancy/'
-  },
-  {
-    id: 3,
-    icon: 'uil uil-youtube',
-    url: 'https://www.youtube.com/@tawadeconsultancy'
-  },
-  {
-    id: 4,
-    icon: 'uil uil-linkedin',
-    url: 'https://www.linkedin.com/in/tawadeconsultancy-undefined-956b433b0/'
-  }
+  { id: 1, icon: Facebook, label: 'Facebook', url: 'https://www.facebook.com/tawadeconsultancyservices/' },
+  { id: 2, icon: Instagram, label: 'Instagram', url: 'https://www.instagram.com/tawadeconsultancy/' },
+  { id: 3, icon: Youtube, label: 'YouTube', url: 'https://www.youtube.com/@tawadeconsultancy' },
+  { id: 4, icon: Linkedin, label: 'LinkedIn', url: 'https://www.linkedin.com/in/tawadeconsultancy-undefined-956b433b0/' }
 ];
 
-// Reusable SocialLinks component
-const SocialLinks = ({ className = 'nav social mt-4' }) => {
+const SocialLinks = ({ className = 'mt-4 flex items-center gap-3' }) => {
   return (
     <nav className={className}>
-      {links.map(({ id, icon, url }) => (
+      {links.map(({ id, icon: Icon, label, url }) => (
         <a
           key={id}
           href={url}
-          target="_blank" // Opens link in a new tab
-          rel="noreferrer" // Security best practice
-          aria-label="Social Media Link" // Improves accessibility
+          target="_blank"
+          rel="noreferrer"
+          aria-label={label}
+          className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white text-slate-900 transition hover:bg-amber-100"
         >
-          <i className={`${icon} fs-34 bg-white rounded`} />
+          <Icon size={18} />
         </a>
       ))}
     </nav>

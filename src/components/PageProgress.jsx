@@ -31,9 +31,9 @@ const PageProgress = () => {
       progressPath.style.strokeDashoffset = `${progress}`;
 
       if (scroll >= offset) {
-        progressWrap.classList.add('active-progress');
+        progressWrap.classList.add('opacity-100');
       } else {
-        progressWrap.classList.remove('active-progress');
+        progressWrap.classList.remove('opacity-100');
       }
     };
 
@@ -55,16 +55,18 @@ const PageProgress = () => {
   }, []);
 
   return (
-    <div>
-      {/* Scroll-to-top progress button */}
-      <div className="progress-wrap" ref={progressWrapRef}>
-        <svg className="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-          <path
-            ref={progressPathRef}
-            d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
-          />
-        </svg>
-      </div>
+    <div
+      ref={progressWrapRef}
+      className="fixed bottom-5 right-5 z-50 h-11 w-11 cursor-pointer rounded-full bg-white/95 opacity-0 shadow-lg ring-1 ring-slate-200 transition-opacity duration-200"
+    >
+      <svg className="h-full w-full -rotate-90" viewBox="-1 -1 102 102">
+        <path
+          ref={progressPathRef}
+          d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98"
+          className="fill-none stroke-[#0b1f3a] stroke-[6]"
+        />
+      </svg>
+      <span className="pointer-events-none absolute inset-0 flex items-center justify-center text-base text-[#0b1f3a]">↑</span>
     </div>
   );
 };
