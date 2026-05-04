@@ -5,19 +5,24 @@ import React from 'react';
 const links = [
   {
     id: 1,
-    icon: 'uil uil-facebook', // Icon class for Facebook
-    url: 'https://www.facebook.com/', // External URL
+    icon: 'uil uil-facebook',
+    url: 'https://www.facebook.com/tawadeconsultancyservices/'
   },
   {
-    id: 1,
-    icon: 'uil uil-instagram', // Icon class for Instagram
-    url: 'https://www.instagram.com/', // External URL
+    id: 2,
+    icon: 'uil uil-instagram',
+    url: 'https://www.instagram.com/tawadeconsultancy/'
   },
   {
-    id: 1,
-    icon: 'uil uil-linkedin', // Icon class for LinkedIn
-    url: 'https://www.linkedin.com/', // External URL
+    id: 3,
+    icon: 'uil uil-youtube',
+    url: 'https://www.youtube.com/@tawadeconsultancy'
   },
+  {
+    id: 4,
+    icon: 'uil uil-linkedin',
+    url: 'https://www.linkedin.com/in/tawadeconsultancy-undefined-956b433b0/'
+  }
 ];
 
 // Reusable SocialLinks component

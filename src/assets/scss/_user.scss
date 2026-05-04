@@ -1,1 +1,45 @@
-// Use this to write your custom SCSS
+// Drawer must not mix .navbar-collapse (see Navbar.jsx).
+// Fallback: readable links & visible menu body on narrow viewports.
+
+@media (max-width: 991.98px) {
+  /* Full-viewport drawer; avoid a short strip that forces awkward scroll */
+  #offcanvas-nav.offcanvas.offcanvas-start {
+    min-height: 100vh !important;
+    height: 100vh !important;
+    max-height: 100dvh !important;
+  }
+
+  #offcanvas-nav.offcanvas.bg-white.text-dark {
+    --#{$prefix}offcanvas-bg: #ffffff;
+    --#{$prefix}offcanvas-color: #{$navy};
+    color: $navy !important;
+  }
+
+  /* Scroll the menu area only; header stays visible */
+  #offcanvas-nav.offcanvas .offcanvas-body {
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  #offcanvas-nav .navbar-nav .nav-link {
+    color: $navy !important;
+    -webkit-text-fill-color: currentColor !important;
+  }
+
+  #offcanvas-nav .navbar-nav .nav-link:hover,
+  #offcanvas-nav .navbar-nav .nav-link:focus {
+    color: $navy !important;
+    background-color: rgba(201, 166, 70, 0.14) !important;
+  }
+
+  #offcanvas-nav .offcanvas-footer .link-body,
+  #offcanvas-nav .offcanvas-footer .link-inverse {
+    color: $navy !important;
+  }
+
+  #offcanvas-nav .offcanvas-footer .link-body:hover {
+    color: $link-hover-color !important;
+  }
+}

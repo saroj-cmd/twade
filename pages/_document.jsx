@@ -6,9 +6,9 @@ export default class HRConsultancy extends Document {
       <Html lang="en">
         <Head>
           {/* Favicon and Icons */}
-          <link rel="icon" type="image/png" href="/img/favicon-96x96.png" sizes="96x96" />
-          <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-          <link rel="shortcut icon" href="/img/favicon/favicon.ico" />
+          <link rel="icon" type="image/png" href="/img/favicon/favicon-96x96.png" sizes="96x96" />
+          <link rel="icon" type="image/svg+xml" href="/img/favicon/favicon.svg" />
+          <link rel="shortcut icon" href="/img/favicon/favicon-96x96.png" />
           <link rel="apple-touch-icon" sizes="180x180" href="/img/favicon/apple-touch-icon.png" />
           <link rel="manifest" href="/img/favicon/site.webmanifest" />
           {/* You may include additional <meta> tags, fonts, or preload links here */}

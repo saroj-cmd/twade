@@ -54,7 +54,8 @@
     margin-right: -0.75rem;
   }
   .offcanvas-body {
-    flex-grow: 0;
+    flex-grow: 1;
+    min-height: min-content;
   }
 }
 .offcanvas:not(.offcanvas-nav) {

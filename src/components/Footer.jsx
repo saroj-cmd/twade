@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import NextLink from 'components/NextLink';
 import SocialLinks from 'components/SocialLinks';
-import { usefulLinks } from '../data';
+import { usefulLinks, contactDetails } from '../data';
 
 /**
  * Generates a widget with a list of links
@@ -38,10 +38,11 @@ const Footer = () => {
 
                 <Image
                   src="/img/logo-light.png"
-                  alt="Logo | HRMate"
-                  width={250}
-                  height={70}
-                  className="text-center mb-3"
+                  alt="Tawade Consultancy"
+                  width={384}
+                  height={384}
+                  sizes="(max-width: 575px) 160px, 220px"
+                  className="text-center mb-3 site-footer-logo"
                 />
   
               <p className="lead mb-2 text-justify fs-18 text-white">
@@ -67,27 +68,17 @@ const Footer = () => {
               <div className="d-flex mb-3 align-items-start">
                 <i className="uil uil-location-pin-alt fs-30 text-white" />
                 <address className="text-white ms-2 m-0 mt-1">
-                  123 Tech Park, Ta. Richmond,
-                  Dist. Greater London,
-                  United Kingdom – SW1A 1AA
+                  {contactDetails.address}
                 </address>
               </div>
 
               <div className="d-flex mb-3 align-items-center">
                 <i className="uil uil-envelope fs-26 text-white" />
-                <a href="mailto:info@hrconsulancy.com" className="link-body ms-2 text-white">
-                  info@hrconsulancy.com
+                <a href="mailto:info@tawadeconsultancy.com" className="link-body ms-2 text-white">
+                  info@tawadeconsultancy.com
                 </a>
               </div>
 
-              <div className="d-flex">
-                <i className="uil uil-phone-volume fs-26 text-white" />
-                <p className="mt-1 ms-2 fs-18">
-                  <a href="tel:+919876543210" className="text-white">
-                    +91 98765 43210
-                  </a>
-                </p>
-              </div>
             </div>
           </div>
 
@@ -95,16 +86,15 @@ const Footer = () => {
           <div className="col-md-3 col-lg-3 mt-md-5 mt-lg-0 mt-10 text-white d-flex justify-content-md-center">
             <div className="widget">
               <h4 className="widget-title text-white fs-24 mb-5">Location</h4>
-              <div className="d-flex justify-content-center border rounded overflow-hidden">
-                <iframe
-                  title="Company Location Map"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3168.978014612501!2d-121.94509168469229!3d37.54826927980085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fc7e3c3b7e7c1%3A0x6f8a645f82fa4b78!2s789%20Innovation%20Dr%2C%20Fremont%2C%20CA%2094538%2C%20USA!5e0!3m2!1sen!2sin!4v1718278912937!5m2!1sen!2sin"
-                  width="100%"
-                  height="250"
-                  style={{ border: 0 }}
-                  loading="lazy"
-                  allowFullScreen
-                ></iframe>
+              <div className="d-flex justify-content-center border rounded overflow-hidden p-4">
+                <a
+                  href="https://maps.app.goo.gl/q8mHeCj5Hhi8xniG9?g_st=awb"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-sm btn-white rounded-pill"
+                >
+                  Open Google Maps
+                </a>
               </div>
             </div>
           </div>

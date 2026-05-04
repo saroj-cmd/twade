@@ -4,15 +4,12 @@ import Navbar from './Navbar';
 
 /**
  * Header Component
- * Wraps the Navbar with an overflow-hidden container to prevent unwanted scrollbars.
- * Useful as the topmost layout section across pages.
+ * Do not wrap the navbar in overflow-hidden — Bootstrap offcanvas uses position:fixed
+ * and Chromium/WebKit clip it to overflowing ancestors; the drawer body (nav links)
+ * disappears while the header/logo and close btn can still appear.
  */
 const Header = () => {
-  return (
-    <div className="overflow-hidden">
-      <Navbar />
-    </div>
-  );
+  return <Navbar />;
 };
 
 export default Header;

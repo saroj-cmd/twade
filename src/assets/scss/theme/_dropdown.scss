@@ -41,8 +41,8 @@
             width: 100%;
           }
           .offcanvas-body {
-            overflow-y: unset;
-            flex-grow: 0;
+            overflow-y: auto;
+            flex-grow: 1;
           }
         }
         .navbar-collapse {

@@ -1,20 +1,23 @@
-// Use this to overwrite Bootstrap and theme variables
+// Tawade — premium navy + gold (Bootstrap / theme overrides)
 
-// Example of a variable override to change the primary color.
-// Remove the "//" to uncomment it and see it in action.
-// $primary: #36a6cf;
+$navy-deep: #0b1f3a;
 
-// Example of a variable override to change the theme font.
-// Remove the "//" to uncomment it and see it in action.
-// $font-family-sans-serif: "Arial", sans-serif;
+$navy: $navy-deep;
+$dark: #1c1c1c !default;
 
-// To use a custom font, first add the font files inside folder src/assets/fonts/
-// Then use the example below to import your custom font.
-// Remove the "//" to uncomment it and see it in action.
-// $path-to-fonts: '../fonts/myfont/myfont.css';
-// $font-family-sans-serif: "My Font Name", sans-serif;
+$yellow: #c9a646;
+$primary: #c9a646;
 
-// To use a Google font use the example below.
-// Remove the "//" to uncomment it and see it in action.
-// $path-to-fonts: 'https://fonts.googleapis.com/css2?family=Montserrat:ital@0;1&display=swap';
-// $font-family-sans-serif: 'Montserrat', sans-serif;
+$body-bg: #ffffff;
+$gray-100: #f8f9fa !default;
+$gray-600: #555555 !default;
+$body-color: #555555 !default;
+
+$border: #e0e0e0 !default;
+
+$secondary: #7a8494 !default;
+
+$green: #2d5548;
+
+$link-color: $navy-deep !default;
+$link-hover-color: #c9a646 !default;

@@ -56,7 +56,7 @@ const About = ({
         src={src}
         width={600}
         height={700}
-        className="position-static"
+        className="position-static about-media-image"
         priority
         placeholder="blur"
         blurDataURL={src1}
