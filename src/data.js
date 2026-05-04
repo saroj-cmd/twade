@@ -1,6 +1,6 @@
 export const usefulLinks = [
   { id: 1, title: 'Home', url: '#home' },
-  { id: 2, title: 'Training', url: '/training' },
+  { id: 2, title: 'Recruitment', url: '/training' },
   { id: 3, title: 'About Us', url: '#about' },
   { id: 4, title: 'Services', url: '#services' },
   { id: 5, title: 'Contact Us', url: '#contact' },
@@ -132,9 +132,9 @@ export const achievements = [
 ];
 
 export const contactDetails = {
-  phone: '+91 99639 32066',
+  phone: '9187299399',
   email: 'info@tawadeconsultancy.com',
-  address: '1st floor Anande nivas opposite New Bus stand near vijay hospital vijay nagar colony Bidar 585401'
+  address: 'Tawade Consultancy, 1st Floor Anande Nivas Opposite New Bus Stand Near Vijay Hospital Vijay Nagar Colony Bidar 585401'
 };
 
 export const aboutContent = {

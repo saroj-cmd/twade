@@ -18,6 +18,9 @@ import {
 } from '../src/data';
 
 const Home = () => {
+  const companyName = 'Tawade Consultancy';
+  const addressLine = contactDetails.address.replace(/^Tawade Consultancy,\s*/i, '');
+
   const AnimatedMetric = ({ value, suffix = '', decimals = 0 }) => {
     const [displayValue, setDisplayValue] = useState(0);
     const [hasStarted, setHasStarted] = useState(false);
@@ -154,7 +157,7 @@ const Home = () => {
           <div className="container pb-12 pb-md-16">
             <div className="row text-center section mb-5 mb-md-0">
               <h2 className="fs-46 fw-bold mb-3 mt-3">
-                Our <span>Training & Career Services</span>
+                Our <span>Recruitment & Career Services</span>
               </h2>
               <p className="mx-auto services-intro">
                 Practical programs designed to build skills, confidence, and placement outcomes for aspiring IT professionals.
@@ -374,10 +377,17 @@ const Home = () => {
                 </p>
                 <div className="contact-card">
                   <p className="mb-2">
+                    <strong>Phone:</strong> <a href={`tel:${contactDetails.phone}`}>{contactDetails.phone}</a>
+                  </p>
+                  <p className="mb-2">
                     <strong>Email:</strong> {contactDetails.email}
                   </p>
                   <p className="mb-0">
-                    <strong>Address:</strong> {contactDetails.address}
+                    <strong>Address:</strong>
+                    <br />
+                    {companyName}
+                    <br />
+                    {addressLine}
                   </p>
                 </div>
               </div>

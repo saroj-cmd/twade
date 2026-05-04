@@ -2,22 +2,22 @@ import Head from 'next/head';
 import Image from 'next/image';
 import NextLink from 'components/NextLink';
 
-const trainingItems = [
-  { title: 'Manpower Recruitment', icon: 'uil uil-users-alt' },
-  { title: 'IT Training & Development', icon: 'uil uil-graduation-cap' },
-  { title: 'HR Consultancy', icon: 'uil uil-briefcase-alt' },
-  { title: 'Banking & Financial Services Support', icon: 'uil uil-university' },
-  { title: 'Career Guidance & Placement Assistance', icon: 'uil uil-chart-line' }
+const recruitmentItems = [
+  { title: 'Executive Search & Leadership Hiring', icon: 'uil uil-search-alt' },
+  { title: 'Permanent Staffing Solutions', icon: 'uil uil-briefcase-alt' },
+  { title: 'Contract & Project-Based Hiring', icon: 'uil uil-users-alt' },
+  { title: 'Screening, Assessment & Shortlisting', icon: 'uil uil-check-circle' },
+  { title: 'Onboarding Coordination & Candidate Support', icon: 'uil uil-user-check' }
 ];
 
-const TrainingPage = () => {
+const RecruitmentPage = () => {
   return (
     <>
       <Head>
-        <title>Training Services | Tawade Consultancy Services</title>
+        <title>Recruitment Services | Tawade Consultancy Services</title>
         <meta
           name="description"
-          content="Explore professional training and career services by Tawade Consultancy Services."
+          content="Explore end-to-end recruitment services by Tawade Consultancy Services."
         />
       </Head>
 
@@ -41,10 +41,10 @@ const TrainingPage = () => {
                   <br />
                   <span>Your Trust Is Our Breath</span>
                 </h1>
-                <h2 className="fs-28 fw-bold mb-4 text-white">Our Training Services</h2>
+                <h2 className="fs-28 fw-bold mb-4 text-white">Our Recruitment Services</h2>
 
                 <div className="row gy-3">
-                  {trainingItems.map((item, idx) => (
+                  {recruitmentItems.map((item, idx) => (
                     <div className="col-md-6" key={item.title}>
                       <div className="training-service-card">
                         <span className="training-service-icon">
@@ -72,35 +72,35 @@ const TrainingPage = () => {
             <div className="row gx-lg-8 gy-8 align-items-center">
               <div className="col-lg-6">
                 <Image
-                  src="/img/sections/hero-services-banner.png"
-                  alt="Training and consultancy services"
+                  src="/img/recruitment-banner.svg"
+                  alt="Recruitment hiring pipeline illustration"
                   width={1400}
                   height={520}
                   className="training-support-image"
                 />
               </div>
               <div className="col-lg-6">
-                <h3 className="fs-34 fw-bold mb-3">Why Choose Our Training Programs?</h3>
+                <h3 className="fs-34 fw-bold mb-3">Why Choose Our Recruitment Services?</h3>
                 <p className="mb-3">
-                  We combine real-world projects, mentor-led sessions, and placement-focused preparation to
-                  help learners become career-ready.
+                  We combine market intelligence, rigorous screening, and fast coordination to help employers
+                  hire the right talent with confidence.
                 </p>
                 <ul className="training-points-list">
                   <li>
                     <i className="uil uil-check-circle" />
-                    <span>Practical, job-oriented learning modules</span>
+                    <span>Role-focused sourcing aligned to your business goals</span>
                   </li>
                   <li>
                     <i className="uil uil-check-circle" />
-                    <span>Experienced trainers across domains</span>
+                    <span>Experienced recruiters across key industry domains</span>
                   </li>
                   <li>
                     <i className="uil uil-check-circle" />
-                    <span>Resume guidance and mock interview support</span>
+                    <span>Structured screening and interview coordination</span>
                   </li>
                   <li>
                     <i className="uil uil-check-circle" />
-                    <span>Dedicated career and placement assistance</span>
+                    <span>Reliable onboarding support and hiring follow-through</span>
                   </li>
                 </ul>
               </div>
@@ -112,4 +112,4 @@ const TrainingPage = () => {
   );
 };
 
-export default TrainingPage;
+export default RecruitmentPage;

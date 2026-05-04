@@ -113,7 +113,7 @@ const Navbar = (props) => {
               <NextLink href={sectionLink('home')} title="Home" className="nav-link rounded" />
             </li>
             <li className="nav-item" data-bs-dismiss="offcanvas">
-              <NextLink href="/training" title="Training" className="nav-link rounded" />
+              <NextLink href="/training" title="Recruitment" className="nav-link rounded" />
             </li>
             <li className="nav-item" data-bs-dismiss="offcanvas">
               <NextLink href={sectionLink('about')} title="About Us" className="nav-link rounded" />

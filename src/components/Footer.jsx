@@ -28,6 +28,9 @@ const widget = (list, title, location = '') => (
  * Contains branding, useful links, contact information, and a map embed.
  */
 const Footer = () => {
+  const companyName = 'Tawade Consultancy';
+  const addressLine = contactDetails.address.replace(/^Tawade Consultancy,\s*/i, '');
+
   return (
     <footer className="border-top dark-bg overflow-hidden">
       <div className="container pt-10 pt-md-12 pb-7">
@@ -68,8 +71,17 @@ const Footer = () => {
               <div className="d-flex mb-3 align-items-start">
                 <i className="uil uil-location-pin-alt fs-30 text-white" />
                 <address className="text-white ms-2 m-0 mt-1">
-                  {contactDetails.address}
+                  {companyName}
+                  <br />
+                  {addressLine}
                 </address>
+              </div>
+
+              <div className="d-flex mb-3 align-items-center">
+                <i className="uil uil-phone fs-26 text-white" />
+                <a href={`tel:${contactDetails.phone}`} className="link-body ms-2 text-white">
+                  {contactDetails.phone}
+                </a>
               </div>
 
               <div className="d-flex mb-3 align-items-center">
