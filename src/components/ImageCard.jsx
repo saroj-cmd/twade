@@ -1,6 +1,5 @@
 // components/ImageCard.jsx
 import Image from 'next/image';
-import { BriefcaseBusiness, ChartNoAxesColumn, GraduationCap, Landmark, Users } from 'lucide-react';
 
 /**
  * ImageCard Component
@@ -13,41 +12,31 @@ import { BriefcaseBusiness, ChartNoAxesColumn, GraduationCap, Landmark, Users } 
  * @param {string} arr[].img - Image path (local or URL)
  */
 const ImageCard = ({ arr }) => {
-  const getIcon = (iconClass) => {
-    if (iconClass?.includes('graduation')) return GraduationCap;
-    if (iconClass?.includes('university')) return Landmark;
-    if (iconClass?.includes('chart-line')) return ChartNoAxesColumn;
-    if (iconClass?.includes('briefcase')) return BriefcaseBusiness;
-    return Users;
-  };
-
   return (
-    <div className="grid grid-cols-1 items-stretch justify-center gap-8 md:grid-cols-2 lg:grid-cols-3">
+    <div className="row gx-lg-8 gx-xl-10 gy-10 align-items-center justify-content-center">
       {arr.map(({ id, title, description, img, icon }) => (
-        <div className="flex justify-center" key={id}>
-          <div className="w-full overflow-hidden rounded-2xl border border-slate-200 bg-white text-center shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-            <div>
+        <div className="col-lg-4 col-md-6 d-flex justify-content-center" key={id}>
+          <div className="card-services text-center w-100">
+            <div className="service-media">
               <Image
                 alt={`${title} | HRMate`}
                 src={img}
                 width={1200}
                 height={800}
-                className="mb-1 h-48 w-full object-cover"
+                className="position-static mb-1 service-image"
                 sizes="(max-width: 767px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
 
-            <div className="p-5">
-              {icon && (() => {
-                const Icon = getIcon(icon);
-                return (
-                  <span className="mx-auto mb-3 inline-flex h-11 w-11 items-center justify-center rounded-full bg-amber-100 text-amber-700">
-                    <Icon size={20} />
-                  </span>
-                );
-              })()}
-              <h3 className="mb-2 text-xl font-semibold text-slate-900">{title}</h3>
-              <p className="p-1 text-justify text-slate-600">{description}</p>
+            {/* Card Content */}
+            <div className="p-4 shadow-lg rounded content">
+              {icon && (
+                <span className="service-icon-badge">
+                  <i className={icon} />
+                </span>
+              )}
+              <h3 className="fs-22 mb-1">{title}</h3>
+              <p className="text-justify p-1">{description}</p>
             </div>
           </div>
         </div>

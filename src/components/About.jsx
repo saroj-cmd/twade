@@ -33,11 +33,14 @@ const About = ({
   span,
   afterSpan
 }) => {
+  
+  // Render either video or image based on `video` prop
   const renderMedia = () => {
     if (video?.src) {
       return (
         <video
-          className="w-full rounded-2xl object-cover"
+          className="mr-5"
+          style={{ maxWidth: '100%', borderRadius: '10px' }}
           autoPlay
           muted
           loop
@@ -53,7 +56,7 @@ const About = ({
         src={src}
         width={600}
         height={700}
-        className="h-auto w-full rounded-2xl object-cover"
+        className="position-static about-media-image"
         priority
         placeholder="blur"
         blurDataURL={src1}
@@ -62,44 +65,46 @@ const About = ({
   };
 
   return (
-    <div className="grid items-center gap-8 lg:grid-cols-12 lg:gap-10">
-      <div className={`lg:col-span-5 ${imgPosition === 'right' ? 'lg:order-2' : 'lg:order-1'}`}>
-        <div>
-          <figure className="overflow-hidden rounded-2xl bg-white shadow-md">
+    <div className="row gx-lg-8 align-items-center">
+      {/* Media (image or video) column */}
+      <div className={`col-lg-5 about-us-image ${imgPosition === 'right' ? 'order-lg-2' : 'order-lg-1'}`}>
+        <div className="about-img">
+          <figure className="reveal image-anime rounded-xl imgs">
             {renderMedia()}
           </figure>
         </div>
       </div>
 
-      <div className={`lg:col-span-7 ${imgPosition === 'right' ? 'lg:order-1' : 'lg:order-2'}`}>
-        {subHeading && <h3 className="text-sm font-semibold uppercase tracking-[0.18em] text-amber-600">{subHeading}</h3>}
+      {/* Text content column */}
+      <div className={`col-lg-7 ${imgPosition === 'right' ? 'order-lg-1' : 'order-lg-2'}`}>
+        {subHeading && <h3 className="fs-15 text-uppercase">{subHeading}</h3>}
 
         {headingH1 && (
-          <h1 className="mb-3 mt-4 text-3xl font-bold text-slate-900 md:text-5xl">
+          <h1 className="fs-46 fw-bold mb-3 mt-4">
             {headingH1}
-            <span className="text-[#0b1f3a]">{span}</span>
+            <span>{span}</span>
             {afterSpan || ''}
           </h1>
         )}
 
         {heading && (
-          <h2 className="mb-3 mt-3 text-3xl font-bold text-slate-900 md:text-5xl">
+          <h2 className="fs-46 fw-bold mb-3 mt-3">
             {heading}
-            <span className="text-[#0b1f3a]">{span}</span>
+            <span>{span}</span>
             {afterSpan || ''}
           </h2>
         )}
 
-        {para && <p className="text-justify text-slate-600">{para}</p>}
-        {para2 && <p className="mb-3 text-justify text-slate-600">{para2}</p>}
-        {para3 && <p className="mb-3 text-justify text-slate-600">{para3}</p>}
+        {para && <p className="text-justify">{para}</p>}
+        {para2 && <p className="mb-3 text-justify">{para2}</p>}
+        {para3 && <p className="mb-3 text-justify">{para3}</p>}
 
         {btnTitle && btnUrl && (
           <div className="mt-5">
             <NextLink
               title={btnTitle}
               href={btnUrl}
-              className="inline-flex rounded-md bg-[#0b1f3a] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#071425]"
+              className="btn btn-md bg-primary text-white rounded"
             />
           </div>
         )}

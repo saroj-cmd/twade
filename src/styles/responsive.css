@@ -1,0 +1,53 @@
+/* Responsive Styles */
+/* Large devices (>= 993px and <= 1199) */
+@media (min-width: 993px) and (max-width: 1199px) {
+  .card-services .content{
+    min-height: 450px !important;
+  }
+}
+/* Medium devices (<= 992px) */
+@media (max-width: 992px) {
+    /* Background color for offcanvas menu */
+    .offcavas-bg {
+      background: #ffffff;
+    }
+
+    .site-navbar {
+      background: rgba(248, 249, 250, 0.98) !important;
+      border-bottom: 1px solid #e0e0e0 !important;
+    }
+
+    .navbar-brand .site-navbar-logo-medallion:not(.site-navbar-logo-offcanvas) {
+      width: 82px !important;
+      height: 82px !important;
+    }
+
+    .offcanvas-header .site-navbar-logo-offcanvas {
+      width: 82px !important;
+      height: 82px !important;
+    }
+  
+    /* Navbar links inside offcanvas body */
+    .offcanvas-nav .offcanvas-body .navbar-nav .nav-link {
+      margin: 0 !important;
+      display: inline-block !important;
+      color: var(--brand-navy, #0b1f3a) !important;
+    }
+
+    /* Hover state for offcanvas links */
+    .offcanvas-nav .offcanvas-body .navbar-nav .nav-link:hover {
+      background-color: rgba(201, 166, 70, 0.14) !important;
+      color: var(--brand-navy, #0b1f3a) !important;
+    }
+
+    .offcanvas-nav-btn {
+      color: var(--brand-navy, #0b1f3a) !important;
+    }
+  
+    /* Adjust video height for smaller screens */
+    .video-large {
+      height: auto;
+    }
+  }
+  
+  
