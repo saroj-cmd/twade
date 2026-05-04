@@ -1,4 +1,5 @@
 @use "sass:color";
+@use "sass:map";
 
 //----------------------------------------------------------//
 //	OPTIONS
@@ -13,7 +14,7 @@ $enable-negative-margins: true !default;
 //----------------------------------------------------------//
 $spacer: 1rem !default;
 $spacers: () !default;
-$spacers: map-merge(
+$spacers: map.merge(
   (
     0: 0,
     1: (
@@ -194,7 +195,7 @@ $success: $green !default;
 $info: $aqua !default;
 $warning: $yellow !default;
 $danger: $red !default;
-$theme-colors: map-merge(
+$theme-colors: map.merge(
   $colors,
   (
     'secondary': $secondary,
@@ -204,13 +205,13 @@ $theme-colors: map-merge(
     'danger': $danger
   )
 );
-$text-colors: map-remove($theme-colors, 'dark') !default;
-$link-colors: map-remove($theme-colors, 'dark') !default;
-$button-colors: map-remove($theme-colors, 'gray') !default;
-$button-soft-colors: map-remove($colors, 'white', 'light', 'gray') !default;
-$bg-pale-colors: map-remove($colors, 'white', 'light', 'gray') !default;
-$bg-soft-colors: map-remove($colors, 'white', 'light', 'yellow') !default;
-$bullet-colors: map-remove($colors, 'yellow') !default;
+$text-colors: map.remove($theme-colors, 'dark') !default;
+$link-colors: map.remove($theme-colors, 'dark') !default;
+$button-colors: map.remove($theme-colors, 'gray') !default;
+$button-soft-colors: map.remove($colors, 'white', 'light', 'gray') !default;
+$bg-pale-colors: map.remove($colors, 'white', 'light', 'gray') !default;
+$bg-soft-colors: map.remove($colors, 'white', 'light', 'yellow') !default;
+$bullet-colors: map.remove($colors, 'yellow') !default;
 $main-color: $primary !default;
 $main-dark: $navy !default;
 $bg-soft-level: 90.5% !default;
