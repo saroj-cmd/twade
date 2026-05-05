@@ -133,8 +133,8 @@ export const achievements = [
 
 export const contactDetails = {
   phone: '9187299399',
-  email: 'info@tawadeconsultancy.com',
-  address: 'Tawade Consultancy, 1st Floor Anande Nivas Opposite New Bus Stand Near Vijay Hospital Vijay Nagar Colony Bidar 585401'
+  email: 'tawadeconsultancy096@gmail.com',
+  address: 'Tawade Consultancy Services, 1st Floor Anande Nivas Opposite New Bus Stand Near Vijay Hospital Vijay Nagar Colony Bidar 585401'
 };
 
 export const aboutContent = {
@@ -144,14 +144,15 @@ export const aboutContent = {
     'The organization focuses on real-world outcomes through hands-on projects, domain-specific programs, and guided interview preparation. From foundational learning to advanced specialization, each path is designed around employability.',
     'With a clear mission to bridge the gap between education and industry demand, Tawade delivers training, placement assistance, and continuous support that enables learners to move confidently into professional IT roles.'
   ],
-  mission: 'To deliver practical, future-ready IT training that creates employable talent and strengthens career outcomes.',
-  vision: 'To be a trusted learning and career partner for aspiring professionals across every major IT domain.'
+  mission: 'To deliver reliable, end-to-end recruitment solutions that connect businesses with qualified talent and drive long-term workforce success.',
+  vision:
+    'To be a trusted partner for recruitment, IT, and banking services, delivering quality outcomes, faster execution, and long-term value for businesses and professionals.'
 };
 
 export const heroContent = {
-  title: 'Build IT Skills That Lead to Real Careers',
+  title: 'We Offer a Diverse Range of Recruitment & IT Services',
   subtitle:
-    'Tawade Consultancy Services transforms beginners into job-ready professionals with practical training, mentorship, and placement-focused support.',
+    'Tawade Consultancy Services helps employers hire the right talent through direct hiring, flexible staffing, and end-to-end recruitment support tailored to business needs.',
   primaryCta: 'Get Started',
   secondaryCta: 'Contact Us'
 };

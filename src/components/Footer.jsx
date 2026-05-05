@@ -28,8 +28,8 @@ const widget = (list, title, location = '') => (
  * Contains branding, useful links, contact information, and a map embed.
  */
 const Footer = () => {
-  const companyName = 'Tawade Consultancy';
-  const addressLine = contactDetails.address.replace(/^Tawade Consultancy,\s*/i, '');
+  const companyName = 'Tawade Consultancy Services';
+  const addressLine = contactDetails.address.replace(/^Tawade Consultancy Services,\s*/i, '');
 
   return (
     <footer className="border-top dark-bg overflow-hidden">
@@ -86,8 +86,8 @@ const Footer = () => {
 
               <div className="d-flex mb-3 align-items-center">
                 <i className="uil uil-envelope fs-26 text-white" />
-                <a href="mailto:info@tawadeconsultancy.com" className="link-body ms-2 text-white">
-                  info@tawadeconsultancy.com
+                <a href={`mailto:${contactDetails.email}`} className="link-body ms-2 text-white">
+                  {contactDetails.email}
                 </a>
               </div>
 

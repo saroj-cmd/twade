@@ -134,9 +134,9 @@ const Navbar = (props) => {
           <div className="offcanvas-footer d-lg-none">
             <div>
               <NextLink
-                title="info@tawadeconsultancy.com"
+                title="tawadeconsultancy096@gmail.com"
                 className="link-body"
-                href="mailto:info@tawadeconsultancy.com"
+                href="mailto:tawadeconsultancy096@gmail.com"
               />
               <br />
               <SocialLinks />

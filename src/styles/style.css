@@ -424,6 +424,11 @@ footer.dark-bg .nav.social a:focus-visible i {
   max-width: 760px;
 }
 
+.services-intro-compact {
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
 .strength-list {
   margin: 0;
   padding-left: 1rem;

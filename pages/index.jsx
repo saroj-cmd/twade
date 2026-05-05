@@ -18,8 +18,8 @@ import {
 } from '../src/data';
 
 const Home = () => {
-  const companyName = 'Tawade Consultancy';
-  const addressLine = contactDetails.address.replace(/^Tawade Consultancy,\s*/i, '');
+  const companyName = 'Tawade Consultancy Services';
+  const addressLine = contactDetails.address.replace(/^Tawade Consultancy Services,\s*/i, '');
 
   const AnimatedMetric = ({ value, suffix = '', decimals = 0 }) => {
     const [displayValue, setDisplayValue] = useState(0);
@@ -78,10 +78,10 @@ const Home = () => {
 
       {/* SEO Metadata */}
       <Head>
-        <title>Tawade Consultancy Services | IT Training & Placement Support</title>
+        <title>Tawade Consultancy Services | Recruitment & Staffing Solutions</title>
         <meta
           name="description"
-          content="Tawade Consultancy Services provides practical IT training, mentorship, and placement support to help learners build successful careers."
+          content="Tawade Consultancy Services provides recruitment and staffing solutions, connecting businesses with qualified talent through reliable end-to-end hiring support."
         />
         <link rel="canonical" href="https://tawadeconsultancy.com/" />
       </Head>
@@ -157,10 +157,12 @@ const Home = () => {
           <div className="container pb-12 pb-md-16">
             <div className="row text-center section mb-5 mb-md-0">
               <h2 className="fs-46 fw-bold mb-3 mt-3">
-                Our <span>Recruitment & Career Services</span>
+                Our <span>Recruitment & IT Services</span>
               </h2>
-              <p className="mx-auto services-intro">
-                Practical programs designed to build skills, confidence, and placement outcomes for aspiring IT professionals.
+              <p className="mx-auto services-intro services-intro-compact">
+                At ManpowerGroup, we believe meaningful, sustainable employment has the power to change the world.
+                Because when you combine talented people with innovative companies, you can build a brighter future
+                for everyone.
               </p>
             </div>
             <div className="mt-10">
@@ -256,12 +258,12 @@ const Home = () => {
                   Meet Our Founder <span>Jaitreeth Tawade</span>
                 </h2>
                 <p className="mb-3">
-                  Tawade Consultancy Services is built on a vision to create practical career pathways and
-                  dependable support for every learner and organization we serve.
+                  Tawade Consultancy Services is built on a vision to provide dependable recruitment support
+                  and workforce solutions for organizations across industries.
                 </p>
                 <p className="mb-0">
-                  Through industry-focused training, mentorship, and placement guidance, our leadership is
-                  committed to turning potential into real professional growth.
+                  Through strategic hiring, talent screening, and onboarding coordination, our leadership is
+                  committed to helping businesses build strong, future-ready teams.
                 </p>
               </div>
             </div>
