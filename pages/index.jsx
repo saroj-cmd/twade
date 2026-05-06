@@ -275,7 +275,9 @@ const Home = () => {
             <h2 className="fs-38 fw-bold mb-3">
               Industries We <span>Support</span>
             </h2>
-            <p className="mx-auto services-intro mb-8">Training talent and delivering practical solutions across diverse industry domains.</p>
+            <p className="mx-auto services-intro mb-8">
+              Delivering recruitment for manufacturing and IT, banking, across all types of industries.
+            </p>
             <div className="industry-tags">
               {industries.map((item) => (
                 <span key={item} className="industry-tag">
@@ -336,7 +338,7 @@ const Home = () => {
           <div className="container py-10 py-md-12">
             <div className="text-center mb-6">
               <h3 className="fs-30 fw-bold mb-2">Trusted Expertise</h3>
-              <p className="mb-0 text-main">Professional standards that strengthen every training and consulting engagement.</p>
+              <p className="mb-0 text-main">Professional standards that strengthen every recruitment and consulting engagement.</p>
             </div>
             <div className="brand-badge-grid">
               <div className="brand-badge-card">
@@ -375,7 +377,7 @@ const Home = () => {
                   Contact <span>Our Team</span>
                 </h2>
                 <p className="mb-6">
-                  Start your IT career journey with free guidance, course counseling, and placement-focused support.
+                  Connect with our team for recruitment support, IT service consultation, and workforce solutions tailored to your needs.
                 </p>
                 <div className="contact-card">
                   <p className="mb-2">

@@ -178,11 +178,11 @@ const Hero = () => {
                     <label htmlFor="helpOption" className="form-label">How Can We Help You?</label>
                     <select id="helpOption" name="helpOption" className="form-select" defaultValue="" required>
                       <option value="" disabled>Select Option</option>
-                      <option value="it-consulting-advisory">IT consulting & Advisory</option>
-                      <option value="cyber-security">Cyber Security</option>
-                      <option value="web-development">Web Devlopment</option>
-                      <option value="mobile-development">mobile Devlopment</option>
-                      <option value="devops-cources">Devops Cources</option>
+                      <option value="recruitment-solutions">Recruitment Solutions</option>
+                      <option value="it-services-consulting">IT Services & Consulting</option>
+                      <option value="banking-support-services">Banking Support Services</option>
+                      <option value="contract-staffing">Contract Staffing</option>
+                      <option value="permanent-hiring">Permanent Hiring</option>
                       <option value="other">Other</option>
                     </select>
                   </div>

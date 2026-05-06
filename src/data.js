@@ -18,11 +18,11 @@ export const homeSolutionsCardData = [
   },
   {
     id: 2,
-    title: 'It Training & Development',
+    title: 'IT Services & Talent Solutions',
     icon: 'uil uil-graduation-cap',
     img: '/img/sections/pro-service-consulting.jpg',
     description:
-      'Practical, industry-focused training programs that build technical capability and job readiness.'
+      'End-to-end IT services and technology talent support to help teams deliver projects efficiently and at scale.'
   },
   {
     id: 3,
@@ -42,20 +42,20 @@ export const homeSolutionsCardData = [
   },
   {
     id: 5,
-    title: 'Carrer Guidance & Placement Assistance',
+    title: 'Career Advisory & Placement Assistance',
     icon: 'uil uil-chart-line',
     img: '/img/sections/featured-office.jpg',
     description:
-      'Career counseling, profile improvement, and placement-focused support to help candidates secure opportunities.'
+      'Professional profile guidance, interview readiness, and placement support to help candidates secure better opportunities.'
   }
 ];
 
 export const keyStrengths = [
-  'Industry-aligned curriculum focused on today’s hiring needs',
-  'Hands-on practical training with project-based learning',
-  'Certified and experienced trainers across IT domains',
-  'Dedicated placement support and interview preparation',
-  'Flexible learning paths for students and fresh graduates'
+  'Industry-aligned recruitment strategy focused on real hiring needs',
+  'Strong candidate screening with role-based shortlisting',
+  'Experienced recruiters across IT, banking, and business domains',
+  'Reliable onboarding coordination and post-hiring support',
+  'Flexible service models for startups, enterprises, and institutions'
 ];
 
 export const industries = [
@@ -63,6 +63,12 @@ export const industries = [
   'Enterprises & Startups',
   'Healthcare',
   'FinTech',
+  'Banking',
+  'IT',
+  'Non-IT',
+  'BPO',
+  'Manufacturing',
+  'Automobile',
   'Retail & E-commerce',
   'Public Sector',
   'SaaS & Technology',
@@ -72,23 +78,23 @@ export const industries = [
 export const workflowSteps = [
   {
     id: 1,
-    title: 'Profile & Goal Analysis',
-    description: 'Experts review your current skills, background, and career goals to identify the best IT learning path.'
+    title: 'Requirement & Role Analysis',
+    description: 'We understand your hiring goals, role scope, and business priorities to define the ideal candidate profile.'
   },
   {
     id: 2,
-    title: 'Consultation & Course Roadmap',
-    description: 'You receive course guidance, skill gap recommendations, and a practical training roadmap.'
+    title: 'Sourcing & Candidate Outreach',
+    description: 'Our team sources qualified talent through targeted channels and engages candidates aligned with your requirements.'
   },
   {
     id: 3,
-    title: 'Upskill with Hands-on Training',
-    description: 'Learn through practical sessions, real-world exercises, and mentorship from experienced trainers.'
+    title: 'Screening & Interview Coordination',
+    description: 'We conduct structured screening, shortlist top profiles, and coordinate interviews for faster hiring decisions.'
   },
   {
     id: 4,
-    title: 'Placement Preparation & Support',
-    description: 'Finalize resume, practice mock interviews, and get placement assistance for suitable opportunities.'
+    title: 'Selection & Onboarding Support',
+    description: 'From final selection to onboarding coordination, we ensure smooth joining and dependable hiring outcomes.'
   }
 ];
 
@@ -127,7 +133,7 @@ export const recruitmentExpertise = [
 export const achievements = [
   { id: 1, value: 98, suffix: '%', decimals: 0, label: 'Client Satisfaction', icon: 'uil uil-smile' },
   { id: 2, value: 1000, suffix: '+', decimals: 0, label: 'Candidates Across Industries', icon: 'uil uil-users-alt' },
-  { id: 3, value: 4.9, suffix: '/5', decimals: 1, label: 'Average Learner Rating', icon: 'uil uil-star' },
+  { id: 3, value: 4.9, suffix: '/5', decimals: 1, label: 'Average Client Rating', icon: 'uil uil-star' },
   { id: 4, value: 100, suffix: '%', decimals: 0, label: 'Reliable Support', icon: 'uil uil-headphones-alt' }
 ];
 
@@ -140,9 +146,9 @@ export const contactDetails = {
 export const aboutContent = {
   heading: 'About Tawade Consultancy Services',
   paragraphs: [
-    'Tawade Consultancy Services helps beginners and fresh graduates become job-ready professionals through practical, career-focused IT training. The team combines technical learning with mentorship to build confidence and long-term growth.',
-    'The organization focuses on real-world outcomes through hands-on projects, domain-specific programs, and guided interview preparation. From foundational learning to advanced specialization, each path is designed around employability.',
-    'With a clear mission to bridge the gap between education and industry demand, Tawade delivers training, placement assistance, and continuous support that enables learners to move confidently into professional IT roles.'
+    'Tawade Consultancy Services supports organizations with reliable, end-to-end recruitment solutions tailored to their workforce goals. Our team focuses on sourcing, screening, and placing candidates who match both role requirements and company culture.',
+    'The organization delivers practical hiring outcomes through structured talent acquisition, domain-focused recruitment, and streamlined coordination with employers. From urgent positions to long-term workforce planning, every engagement is built around quality and speed.',
+    'With a clear mission to bridge the gap between business demand and available talent, Tawade provides recruitment, IT, and banking support services that help clients build strong and dependable teams.'
   ],
   mission: 'To deliver reliable, end-to-end recruitment solutions that connect businesses with qualified talent and drive long-term workforce success.',
   vision:
